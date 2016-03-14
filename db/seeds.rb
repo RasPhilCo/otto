@@ -1,0 +1,68 @@
+# https://medium.com/@maxrogers/catfacts-ruby-sinatra-mongodb-9eedc2940462
+require 'mongoid'
+require './app'
+
+#Check if in development,test or production mode
+Mongoid.load!("./config/mongoid.yml", :development)
+
+catfacts = ["Blue-eyed cats have a high tendency to be deaf, but not all cats with blue eyes are deaf.",
+ "Cat's back claws aren't as sharp as the claws on their front paws.",
+ "Most kittens are born with blue eyes, which then turn color with age.",
+ "Before it was called the Scottish Fold, this cat's original breed name was Flops, for its floppy ears.",
+ "Ancient Egyptians first adored cats for their finesse in killing rodents—as far back as 4,000 years ago.",
+ "Each side of a cat's face has about 12 whiskers.",
+ "Cats prefer their food at room temperature—not too hot, not too cold.",
+ "A cat can reach up to five times its own height per jump.",
+ "A kitten with green fur was discovered in Denmark in 1995. Originally thought to be a genetic mutation, scientists later determined it was due to high copper levels in the water supply.",
+ "Despite appearing like a wild cat, the Ocicat does not have an ounce of wild blood.",
+ "Perhaps the oldest cat breed on record is the Egyptian Mau, which is also the Egyptian language's word for cat.",
+ "Twenty-five percent of cat owners use a blow drier on their cats after bathing.",
+ "Cats' rough tongues enable them to clean themselves efficiently and to lick clean an animal bone.",
+ "Around the world, cats take a break to nap—a catnap—425 million times a day.",
+ "Cats show affection and mark their territory by rubbing on people. Glands on their face, tail and paws release a scent to make its mark.",
+ "A fingerprint is to a human as a nose is to a cat.",
+ "If you killed a cat in the ages of Pharaoh, you could've been put to death.",
+ "In North America, cats are a more popular pet than dogs. Nearly 73 million cats and 63 million dogs are kept as household pets.",
+ "Cats are carnivores. They must eat meat to meet their nutritional needs and to thrive.",
+ "Cats actually have dreams, just like us. They start dreaming when they reach a week old.",
+ "It is important to include fat in your cat's diet because they're unable to make the nutrient in their bodies on their own.",
+ "Cats use their whiskers to measure openings, indicate mood and general navigation.",
+ "Collectively, kittens yawn about 200 million time per hour.",
+ "Cats have a strong aversion to anything citrus.",
+ "Genetically, cats' brains are more similar to that of a human than a dog's brain.",
+ "When a household cat died in ancient Egypt, its owners showed their grief by shaving their eyebrows.",
+ "Most cat litters contain four to six kittens.",
+ "Caution during Christmas: poinsettias may be festive, but they're poisonous to cats.",
+ "A Selkirk slowly loses its naturally-born curly coat, but it grows again when the cat is around 8 months.",
+ "Cats sleep 16 hours of any given day.",
+ "Call them wide-eyes: cats are the mammals with the largest eyes.",
+ "Cats who eat too much tuna can become addicted, which can actually cause a Vitamin E deficiency.",
+ "According to the Association for Pet Obesity Prevention (APOP), about 50 million of our cats are overweight.",
+ "A cat's heart beats almost double the rate of a human heart, from 110 to 140 beats per minute.",
+ "Sometimes called the Canadian Hairless, the Sphynx is the first cat breed that has lasted this long—the breed has been around since 1966.",
+ "Some cats can survive falls from as high up as 65 feet or more.",
+ "As temperatures rise, so do the number of cats. Cats are known to breed in warm weather, which leads many animal advocates worried about the plight of cats under Global Warming.",
+ "A cat's heart beats nearly twice as fast as a human heart, about 110 to 140 beats per minute.",
+ "According to the Guinness World Records, the largest domestic cat litter totaled at 19 kittens, four of them stillborn.",
+ "In multi-pet households, cats are able to get along especially well with dogs if they're introduced when the cat is under 6 months old and the dog is under one year old.",
+ "A cat's field of vision does not cover the area right under its nose.",
+ "Eating grass rids a cats' system of any fur and helps with digestion.",
+ "Cats have the skillset that makes them able to learn how to use a toilet.",
+ "A group of kittens is called a \"kindle\", and \"clowder\" is a term that refers to a group of adult cats.",
+ "If your cat's eyes are closed, it's not necessarily because it's tired. A sign of closed eyes means your cat is happy or pleased.",
+ "In one litter of kittens, there could be multiple \"father\" cats.",
+ "Cats have 24 more bones than humans.", "Sir Isaac Newton, among his many achievements, invented the cat \"flap\" door.",
+ "The color of York Chocolates becomes richer with age. Kittens are born with a lighter coat than the adults.",
+ "Maine Coons are the most massive breed of house cats. They can weigh up to around 24 pounds.",
+ "Cats have over 100 sounds in their vocal repertoire, while dogs only have 10.",
+ "A third of cats' time spent awake is usually spent cleaning themselves.",
+ "It has been said that the Ukrainian Levkoy has the appearance of a dog, due to the angles of its face.",
+ "Teeth of cats are sharper when they're kittens. After six months, they lose their needle-sharp milk teeth.",
+ "Cats have the cognitive ability to sense a human's feelings and overall mood.",
+ "Cats can pick up on your tone of voice, so sweet-talking to your cat has more of an impact than you think.",
+ "The two outer layers of a cat's hair are called, respectively, the guard hair and the awn hair.",
+ "Cats came to the Americas from Europe as pest controllers in the 1750s."]
+
+catfacts.each do |catfact|
+ Fact.create(description: catfact)
+end

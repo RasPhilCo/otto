@@ -1,0 +1,22 @@
+---
+app: otto example
+database: ./config/mongoid.yml
+routes:
+  - path: /hi
+    verb: get
+    response: "hello"
+
+resources:
+  - name: Fact
+    attributes:
+      description: String
+      type: String
+    routes:
+      - path: /facts
+        verb: get
+        response:
+          query: all
+          type: json
+  - name: User
+    attributes:
+      name: String
